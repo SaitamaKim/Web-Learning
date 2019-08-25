@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    .box1{
+        width: 1000px;
+        height:2000px;
+        margin: 0 auto;
+        background-color:aqua; 
+        /* background-image: url(./img/1.jpg); */
+        background-image: url(./img/2.png);
+        background-repeat: no-repeat;
+        /* 
+        I  使用background-image来设置背景图片
+            - 如果背景图片大于元素，默认显示图片的左上角
+            - 如果背景图片和元素一样大，则会将图片全部显示
+            - 如果背景图片小于元素大小，则会默认将背景元素平铺以充满元素
+
+            可以同时为元素设置背景图片和背景颜色，这样背景颜色将会作为背景图片的底色
+            一般情况下，设置背景图片都会同时设置一个背景颜色
+
+        II  background-repeat用来设置背景图片的重复方式
+                可选值：
+                    repeat：默认值，背景图片会双方向重复（平铺）
+                    no-repeat ：背景图片不会重复，有多大就显示多大
+                    repeat-x：水平方向重复
+                    repeat-y：垂直方向重复
+
+        III 背景图片默认贴着元素左上角显示
+            通过background-position可以调整背景图片在元素中的位置
+                可选值：
+                    该属性可以用top right left bottom center中的两个值来指定位置
+                    如果只给出一个值，则第二个值默认是center
+                    实例：background-position: bottom right;
+
+                也可以直接制定两个偏移量(可以指定负值)：
+                        第一个值是水平偏移量
+                        第二个值是垂直偏移量
+                        background-position: 100px 0px;
+        IIII  background-attachment用来设置背景图片是否随页面一起滚动
+                可选值：
+                    scroll：默认值，背景图片随着窗口滚动 
+                    fixed：背景图片会固定为某一位置，不随页面滚动
+            注意！：当背景图片的background-attachment设置为fixed时
+                    背景图片的定位永远相对于浏览器窗口
+                    这个属性和元素的定位不同，不会导致层级的变化，所以背景还是背景，
+                    该被其他元素盖住还是会被盖住
+        
+        V     background简写属性没有顺序
+
+        */
+        background-position: center;
+        /*
+         background-attachment: fixed;
+         注意！：当背景图片的background-attachment设置为fixed时
+                    背景图片的定位永远相对于浏览器窗口
+        一般来说这个属性都设置给body，
+        因为背景显示的前提是背景所在元素显示，如果设置给某个div，随着滚动div不显示，
+        则背景也会消失
+        
+         */
+
+    }
+    </style>
+</head>
+<body>
+    <div class="box1"></div>
+</body>
+</html>

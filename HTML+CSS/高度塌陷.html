@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    /* 
+    在文档流中，父元素的默认高度是被子元素撑开的
+      也就是子元素多高 父元素就多高
+
+    但是当为子元素设置浮动后，子元素会完全脱离文档流
+      此时会导致子元素无法撑起父元素，导致父元素的高度塌陷
+      由于父元素的高度塌陷了，父元素下的所有元素都会向上移动，页面布局会乱
+
+    在开发重要避免高度塌陷的情况
+    解决方法：
+        1. 可以将父元素的高度写死，以避免塌陷的问题出现，但是一旦高度写死，父元素的高度不能自动适应
+            子元素，所以不建议使用。
+        2. 父元素设置属性  overflow: hidden   (原理：开启BFC模式)(推荐使用)
+        3. clear
+           3.1 设置空元素并且clear:both
+           3.2 用伪类设置空元素并且clear:both
+
+    clear属性作用：消除左右浮动元素对其他的影响
+        可选值：
+              left: 消除左边浮动元素的影响，效果和左边浮动元素未浮动一样
+              right：消除右边浮动元素的影响，效果和右边浮动元素未浮动一样
+              both： 同时消除左右的影响？？（x）
+                     消除左右影响较大的一个元素的影响（√） 
+     */
+
+
+
+     .box1{
+         border: 1px solid red;
+         /*
+          解决方法1
+         overflow: hidden；
+        */
+     }
+
+     .box2{
+        width: 100px;
+        height: 100px;
+        float: left;
+        background-color:blue;
+     }
+
+     .box3{
+         width: 200px;
+         height: 200px;
+         background-color:coral;
+
+     }
+     /* 
+     解决方法2
+     .clear{
+         clear:both;
+     } 
+    */
+
+
+    /* 
+    解决方法3
+     注意是box1  after伪类的意义是该元素的尾部
+
+    .box1:after{
+        设置空内容
+        content:"";
+        设置成块元素，否则内联元素会水平排出去，没有垂直撑起高度的效果
+        display:block;
+        消除浮动
+        clear:both;
+    }
+
+    还可以统一用.clearfix:after{}来消除浮动，这样只需要在需要消除浮动的元素
+    类名后添加clearfix并且用空格隔开就行了
+    */    
+    </style>
+</head>
+<body>
+    <div class="box1">
+        <div class="box2"></div>
+        <!-- 
+        解决方法2
+        <div class="clear"></div>
+        -->      
+    </div>
+    <div class="box3"></div>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>JavaScript 函数</h1>
+
+    <p>在此示例中，person 的 fulllName 方法在 person1 上<b>应用</b>：</p>
+    
+    <p id="demo"></p>
+    
+    <script>
+
+    /* 
+    call() 和 apply() 之间的区别
+    不同之处是：
+    
+    call() 方法分别接受参数。
+    apply() 方法接受数组形式的参数。
+
+    如果要使用数组而不是参数列表，则 apply() 方法非常方便。
+    */
+    var person = {
+        fullName: function(city, country) {
+        return this.firstName + " " + this.lastName + "," + city + "," + country;
+        }
+    }
+    var person1 = {
+        firstName:"Bill",
+        lastName: "Gates"
+    }
+    var x = person.fullName.apply(person1, ["Seatle", "USA"]); 
+    document.getElementById("demo").innerHTML = x; 
+
+
+     /* 在数组上模拟 max 方法
+        您可以使用 Math.max() 方法找到（数字列表中的）最大数字：
+
+        Math.max(1,2,3);  // 会返回 3
+
+        由于 JavaScript 数组没有 max() 方法，因此您可以应用 Math.max() 方法。 
+
+        Math.max.apply(null, [1,2,3]); // 也会返回 3
+        第一个参数（null）无关紧要。在本例中未使用它。
+
+        Math.max.apply(Math, [1,2,3]); // 也会返回 3
+        Math.max.apply(Math, [1,2,3]); // 也会返回 3
+        Math.max.apply(0, [1,2,3]); // 也会返回 3
+
+     */
+
+    </script>
+
+
+     
+
+
+</body>
+</html>

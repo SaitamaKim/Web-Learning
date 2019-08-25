@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    body{
+        height: 5000px;
+    }
+    .box1{
+        background-color: brown;
+        position: absolute;
+
+    }
+    .box2{
+        width: 200px;
+        height: 200px;
+        background-color: aqua;
+    }
+    .box3{
+        width: 100px;
+        height: 100px;
+        background-color: cornflowerblue;
+        /* 
+        绝对定位:
+        1.开启绝对定位会使元素脱离文档流
+        2，开启绝对定位以后，如果不设置偏移量，则元素的位置不会发生变化（默认设置好left,top..的值）
+        3.绝对定位是相当于离他最近的开启了定位的祖先元素进行定位的
+            如果所有的祖先元素都没有开启定位，则相当于浏览器窗口进行定位
+            请注意这里如果相对于浏览器窗口定位，并不能做到和固定定位相同的滚动不动性
+        4.绝对定位会使元素提升一个层级
+        5.绝对定位会改变元素的性质（脱离了文档流）
+            内联元素会变成块元素
+            块元素的高度和宽度默认被内容撑开    
+         */
+
+        position:absolute;
+        left: 0;
+        top: 0; 
+
+    }
+    .box4{
+        width: 200px;
+        height: 200px;
+        background-color: blueviolet;
+        /* 父元素开启定位，子元素才能相对于他定位 */
+        position: relative;
+    }
+    span{
+        width: 200px;
+        height: 200px;
+        background-color: darkkhaki;
+        position: absolute;
+    }
+    
+    </style>
+</head>
+<body>
+        <div class="box1">我来测试块级元素开启绝对定位以后性质的变化</div>
+        <div class="box2"></div>
+        <div class="box4">
+            <div class="box3"></div>
+        </div>
+        <span>我是测试开启绝对定位以后元素性质是否会改变</span>
+
+        
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box1{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        
+        }
+        /*
+        子元素默认是在父元素的内容区内
+        理论上讲子元素的最大尺寸可以等于父元素的内容区的大小
+        如果子元素的大小超过了父元素的内容区，则超过的大小将会在父元素以外的区域显示
+            超过父元素的内容，称之为溢出的内容 
+        父元素默认是把溢出内容在父元素以外显示出来
+        通过overflow可以设置父元素如何处理溢出内容
+            可选值：
+            1. visible 默认值，元素不会对溢出内容处理
+            2. hidden 溢出的内容会被修剪，不会被显示
+            3. scroll 会为父元素添加滚动条，通过拖动滚动条来查看完整内容
+                       - 该属性无论内容是否溢出都会添加滚动条（水平以及垂直）
+            4. auto    会根据需求自动添加滚动条
+                        - 需要水平就添加水平滚动条
+                        - 需要垂直就添加吹绘制滚动条
+                        - 都不需要就不加
+         */
+        .box2{
+            width:100px;
+            height: 500px;
+            background-color: aqua;
+        }
+
+    
+    </style>
+</head>
+<body>
+    <div class="box1">
+        <div class="box2">
+        </div>
+    </div>
+</body>
+</html>

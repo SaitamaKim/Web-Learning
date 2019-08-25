@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>找到最大的数字</h1>
+
+    <p id="demo"></p>
+
+    <script>
+    // JavaScript 函数定义不会为参数（parameter）规定数据类型。
+    //JavaScript 函数不会对所传递的参数（argument）实行类型检查
+    //JavaScript 函数不会检查所接收参数（argument）的数量。
+    // 如果调用参数时省略了参数（少于被声明的数量），则丢失的值被设置为：undefined
+
+    //如果函数调用的参数太多（超过声明），则可以使用 arguments 对象来达到这些参数。
+    //JavaScript 函数有一个名为 arguments 对象的内置对象。
+    //arguments 对象包含函数调用时使用的参数数组。
+
+    //参数通过值传递
+    //对象是由引用传递的
+    function findMax() {
+    var i;
+    var max = -Infinity;
+    for(i = 0; i < arguments.length; i++) {
+        if (arguments[i] > max) {
+        max = arguments[i];
+        }
+    }
+    return max;
+    } 
+    document.getElementById("demo").innerHTML = findMax(4, 5, 6);
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    span {
+        padding-bottom: 50px;   
+        background-color: aqua;
+    }
+    div{
+        width: 100px;
+        height: 100px;
+        background-color: brown;
+    }
+    </style>
+</head>
+<body>
+    <!--  
+          
+    1.
+        内联元素不能设置width和height
+        width和height是由内容撑开的，内容多少width和height多大
+
+    2.
+        内联元素可以设置水平方向的内边距
+        padding-left: 30px;  会对水平方向的元素有影响，水平方向的元素会被撑开
+
+        可以设置垂直方向的内边距，但是不会影响垂直方向的布局
+        只是视觉上会有撑开的效果，但是垂直布局不变,在本例中可以看到下面的div并没有被span的下内边距撑开，
+        而是在视觉上被挡住了
+
+    3.
+        内联元素支持水平方向的外边距，而且相邻外边距不会发生重叠
+
+        内联元素不支持垂直方向的外边距
+     -->
+     <span>我是一个span</span>
+     <div></div>
+
+
+
+
+</body>
+</html>

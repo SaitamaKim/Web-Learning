@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+    window 对象:
+            所有浏览器都支持 window 对象。它代表浏览器的窗口。
+            浏览器窗口（浏览器视口）不包括工具栏和滚动条。
+            所有全局 JavaScript 对象，函数和变量自动成为 window 对象的成员。
+            window.open() - 打开新窗口
+            window.close() - 关闭当前窗口
+            window.moveTo() -移动当前窗口
+            window.resizeTo() -重新调整当前窗口
+
+
+    window screen对象:
+            window.screen 对象包含用户屏幕的信息。
+            window.screen 对象不带 window 前缀也可以写：
+                screen.width
+                screen.height
+                screen.availWidth
+                screen.availHeight
+                screen.colorDepth
+                screen.pixelDepth
+        
+    Window Location对象：
+            window.location 对象可用于获取当前页面地址（URL）并把浏览器重定向到新页面。
+            window.location.href 返回当前页面的 href (URL)
+            window.location.hostname 返回 web 主机的域名
+            window.location.pathname 返回当前页面的路径或文件名
+            window.location.protocol 返回使用的 web 协议（http: 或 https:）
+            window.location.assign 加载新文档
+        
+    Window History对象:
+            window.history 对象包含浏览器历史：
+            为了保护用户的隐私，JavaScript 访问此对象存在限制。
+            history.back() - 等同于在浏览器点击后退按钮
+            history.forward() - 等同于在浏览器中点击前进按钮
+
+    Window  Navigator对象:
+            window.navigator 对象包含有关访问者的信息：
+            navigator.cookieEnabled 属性返回 true，如果 cookie 已启用，否则返回 false
+            navigator.appName 属性返回浏览器的应用程序名称
+            navigator.appCodeName 属性返回浏览器的应用程序代码名称：
+            navigator.product  属性返回浏览器引擎的产品名称
+            navigator.platform 属性返回浏览器平台（操作系统）
+            ............
+        
+    JavaScript 弹出框:
+            JavaScript 有三种类型的弹出框：警告框、确认框和提示框
+
+            1. 警告框：
+                    window.alert("sometext");
+                    可以省略window.
+            2.  确认框:
+                    如果用户单击“确定”，该框返回 true。如果用户单击“取消”，该框返回 false。
+                    window.confirm("sometext");（window可省略）
+                    实例：
+                        var r = confirm("请按按钮");
+                        if (r == true) {
+                            x = "您按了确认！";
+                        } else {
+                            x = "您按了取消！";
+                        }
+            3.  提示框:
+                    如果您希望用户在进入页面前输入值，通常会使用提示框。
+                    当提示框弹出时，用户将不得不输入值后单击“确定”或点击“取消”来继续进行。
+                    如果用户单击“确定”，该框返回输入值。如果用户单击“取消”，该框返回 NULL。
+                    window.prompt("sometext","defaultText");（window可省略）           
+                    实例：
+                        var person = prompt("请输入您的姓名", "比尔盖茨");
+                        if (person != null) {
+                            txt = "你好 " + person + "！今天过的怎么样？";
+                        }
+            4. 拆行:
+                        如需在弹出框中显示折行，使用\n
+                        alert("Hello\nHow are you?");
+
+    JS Timing事件：
+            JavaScript 可以在时间间隔内执行。
+            这就是所谓的定时事件（ Timing Events）。
+
+            1. setTimeout(function, milliseconds)
+                        在等待指定的毫秒数后执行函数。
+            2. setInterval(function, milliseconds)
+                        等同于 setTimeout()，但持续重复执行该函数。
+            3. window.clearTimeout(timeoutVariable)
+                    停止计时器
+                    clearTimeout() 使用从 setTimeout() 返回的变量：
+                        myVar = setTimeout(function, milliseconds);
+                        clearTimeout(myVar);
+            4. window.clearInterval(timerVariable)
+                    停止计时器
+                    myVar = setInterval(function, milliseconds);
+                    clearInterval(myVar);
+        
+    JavaScript Cookies:
+            Cookie 让您在网页中存储用户信息。
+            JavaScript 可以用 document.cookie 属性创建、读取、删除 cookie。
+
+     -->
+</body>
+</html>

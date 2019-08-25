@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>JavaScript 函数</h1>
+
+    <p>此例调用 person 的 fullName 方法，在 person1 上使用它：</p>
+    
+    <p id="demo"></p>
+    
+    <script>
+    //call() 方法是预定义的 JavaScript 方法。
+
+    //它可以用来调用所有者对象作为参数的方法。
+
+    /*
+    通过 call()，您能够使用属于另一个对象的方法。
+    */
+
+    //本例调用 person 的 fullName 方法，并用于 person1：
+    var person = {
+        fullName: function() {
+        return this.firstName + " " + this.lastName;
+        }
+    }
+    var person1 = {
+        firstName:"Bill",
+        lastName: "Gates"
+    }
+    var person2 = {
+        firstName:"Steve",
+        lastName: "Jobs"
+    }
+    var x = person.fullName.call(person1); 
+    document.getElementById("demo").innerHTML = x; 
+
+
+    //带参数的call方法
+    // var person = {
+    // fullName: function(city, country) {
+    // return this.firstName + " " + this.lastName + "," + city + "," + country;
+    //      }
+    // }
+    // var person1 = {
+    // firstName:"Bill",
+    // lastName: "Gates"
+    // }
+    // person.fullName.call(person1, "Seattle", "USA");
+
+
+
+
+    </script>
+</body>
+</html>

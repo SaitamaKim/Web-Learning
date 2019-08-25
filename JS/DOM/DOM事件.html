@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    *{
+        margin:0;
+        padding: 0;
+    }
+    body{
+        background-color: black;
+    }
+    button{
+        display: block;
+        margin:0 auto;
+        width: 200px;
+        font-size: 40px;
+    }
+    video{
+        display: block;
+        margin: 0 auto;
+        width: 1000px;
+    }
+    </style>
+</head>
+
+    <!-- 对于事件的一些理解
+    1.直接对html元素设置事件处理
+         onclick = "  "
+         注意上面是双引号
+         我们需要给onclick注册的是事件处理程序的代码
+         所以可以直接在双引号里面写js代码
+         但是如果要调用函数，要注意这里有双引号，如果只传函数名，
+         会将函数名理解成代码，显然不对，所以要加括号
+         例如  onclick = "fun()" ,这样fun()函数的内部代码便会被onclick读取到
+    2.在js中对dom元素设置事件处理
+        element.onclick = 函数名
+        or
+        element.addEventListener("click",函数名)
+
+        同样是要把函数的代码块传给click注册
+        区别在于这边没有双引号
+        所以只要传函数名，函数名就代表了代码块（可以参考直接输出函数名，会发现是内部代码）
+    3.有参事件处理
+        第一种方式只需要把有参函数带上参数写在双引号即可
+            例如：onclick = "myFunction(p1,p2)"
+        第二种方式，因为只能写函数名，所以不可以加参数，这时候需要用到匿名函数
+            例如：element.onclick = function(){myFunction(p1,p2);};
+            匿名函数可以直接赋值给一个变量，那个变量就变成函数名，所以匿名函数可以函数名在这边使用
+        如果不使用匿名函数会怎样？
+            element.onclick = myFunction(p1,p2);
+            这里没有传递函数名，所以会导致这个事件无法注册，后面的myFunction(p1,p2)无法解析注册
+            js会将myFunction(p1,p2)直接当作值直接运行了，而没有绑定上click事件
+    -->
+
+<body>
+    <div id="div">
+        <button id="b2">比较事件冒泡和事件捕获</button>
+    </div>
+    <button id="b1" onclick="show()">点击展示</button>
+    <video src="" alt="" id="img1" autoplay>
+
+    <script>
+    var b2 =  document.getElementById("b2");
+    var b = document.getElementById("b1");
+    var i = document.getElementById("img1");
+    var d = document.getElementById("div");
+    var show = function(){
+        if(i.getAttribute("src")){
+            b.innerHTML = "点击展示";
+            i.src = ""; 
+        }else{
+            b.innerHTML = "关闭展示";
+            i.src = "http://txmov2.a.yximgs.com/upic/2019/07/05/13/BMjAxOTA3MDUxMzE3NDBfMTkzMjczMzhfMTQ4MDU2Nzg5MDhfMl8z_b_Bdcf07affb1c2ee194c0fbd1a24d368a1.mp4";
+        }
+    };
+
+    //比较事件冒泡和事件捕获
+
+    //第三个参数   useCapture  是否使用事件捕获  默认false
+
+    //事件冒泡  从里到外
+    b2.addEventListener("click",function(){alert("button事件")},false);
+    d.addEventListener("click",function(){alert("div事件")},false);
+    //事件捕获 从外向里
+    b2.addEventListener("click",function(){alert("button事件")},true);
+    d.addEventListener("click",function(){alert("div事件")},true);
+
+    
+    //删除事件
+    element.removeEventListener("click", 函数名);
+    
+    </script>
+</body>
+</html>

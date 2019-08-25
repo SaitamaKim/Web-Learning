@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /* 
+        文字（内联元素）默认会在行高中水平居中
+        行高可以继承
+        如果只设置行高而不设置高度，且设置的行高比高度来的大，那么高度也会变成行高的大小
+
+
+        使文字垂直居中的方法：把行高设置成和height一样多！
+
+        感觉设置行高就是设置上下padding？（X）
+        是设置字体的大小高度  内容被撑大了
+        对于图片这种内联元素来说设置行高，只是改变了对齐方式，对于内容、边框、内边距、外边距没有什么变化
+
+         */
+    div.line{
+        background-color: blueviolet;
+        height: 100px;
+        /* line-height: 100px; */
+    }
+    h3{
+        background-color:aquamarine; 
+    }
+    a{
+        background-color:aqua;
+        float: right;
+    }
+    .line2{
+        height: 100px;
+        background-color:blanchedalmond;
+        line-height: 100px;
+    }
+    img{
+        width: 32px;
+    }
+
+    
+    </style>
+</head>
+<body>
+    <div class="line">
+        <a href="#">链接而已</a>
+        <h3>只是实验</h3>         
+    </div>
+
+    <div class="line2">
+        <img src="img/1.jpg" alt="">
+    </div>
+</body>
+</html>

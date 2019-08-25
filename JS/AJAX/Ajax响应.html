@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+            table,th,td {
+              border : 1px solid black;
+              border-collapse: collapse;
+            }
+            th,td {
+              padding: 5px;
+            }
+            </style>
+</head>
+<body>
+        <h1>XMLHttpRequest 对象</h1>
+
+        <button type="button" onclick="loadDocXml()">获取我的音乐列表XML方法</button>
+        <button type="button" onclick="loadDocText()">获取我的音乐列表TEXT方法</button>
+        <br><br>
+        <table id="demo"></table>
+        <p id="para"></p>
+        
+        <script>
+    /* 
+        响应类型
+            responseText
+            responseXML
+        responseText返回字符串
+        responseXML返回 XML DOM 对象，使用此属性，可以把响应解析为 XML DOM 对象
+     */
+
+
+
+     //使用responseText
+        function loadDocText() {
+          var xhttp = new XMLHttpRequest();
+          xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+              myFunctionText(this);
+            }
+          };
+          xhttp.open("GET", "music_list.xml", true);
+          xhttp.send();
+        }
+        function myFunctionText(xhttp){
+            document.getElementById("para").innerHTML = xhttp.responseText;
+        }
+  
+
+
+
+     //使用responseXML
+        function loadDocXml() {
+          var xhttp = new XMLHttpRequest();
+          xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+              myFunctionXML(this);
+            }
+          };
+          xhttp.open("GET", "music_list.xml", true);
+          xhttp.send();
+        }
+        function myFunctionXML(xhttp) {
+          var i;
+          var xmlDoc = xhttp.responseXML;
+          var table="<tr><th>艺术家</th><th>曲目</th></tr>";
+          var x = xmlDoc.getElementsByTagName("TRACK");
+          for (i = 0; i <x.length; i++) { 
+            table += "<tr><td>" +
+            x[i].getElementsByTagName("ARTIST")[0].childNodes[0].nodeValue +
+            "</td><td>" +
+            x[i].getElementsByTagName("TITLE")[0].childNodes[0].nodeValue +
+            "</td></tr>";
+          }
+          document.getElementById("demo").innerHTML = table;
+        }
+        </script>
+    
+</body>
+</html>

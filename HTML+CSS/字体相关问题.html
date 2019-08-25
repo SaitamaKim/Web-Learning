@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        字体大小设置的是字体那个格子的大小
+        每个字都是在一个格子里面  设置font-size的大小 得到的文字大小会比设置的值小一点
+        或者大一点，是由字体决定的，一般是小一些
+
+        font 属性的设置:字体和大小必须写，而且字体是最后一个，大小是倒数第二个
+
+        行高line-height
+        css中没有直接设置行间距的属性可以通过 line-height来设置
+        文字默认在行高中垂直居中显示
+        line-height 可以设置为
+        1. px
+        2. 数字（倍数） 输入2相当于当前字体尺寸大小的2倍
+        3. % 相对与当前字体尺寸大小
+
+        在font中指定行高
+        在大小属性后加 /
+        For example:  font:30px/50px "微软雅黑";
+
+
+        注意一个陷阱：
+        使用font设置样式
+        如果这么写：
+        line-height:50px;
+        font: 30px "微软雅黑";
+        会导致line—height不生效，因为font属性不设置行高就是用默认值，而默认值不是50px
+        同样的道理，其他样式（斜体...）都会有这个问题
+
+        解决方法：
+        1. 在font属性中设置
+        2. 把line-height:50px;这句话放到下面去覆盖默认值
+     -->
+
+     
+</body>
+</html>

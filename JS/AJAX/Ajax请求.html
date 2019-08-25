@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="loadDoc()">点击</button>
+    <p id="para"></p>
+    <!-- 
+        XMLHttpRequest对象是ajax的核心
+     -->
+     <script>
+
+    function loadDoc(){
+
+     //首先创建一个XMLHttpRequest对象
+    var xhttp = new XMLHttpRequest();
+    //绑定事件
+    xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("para").innerHTML = this.responseText;
+    }
+    };
+
+     //向服务器发送请求
+     //如需向服务器发送请求，我们使用 XMLHttpRequest 对象的 open() 和 send() 方法
+     /*
+      open(method, url, async)
+        method：请求的类型：GET 还是 POST
+        url：服务器（文件）位置
+        async：true（异步）或 false（同步）
+    */
+    xhttp.open("GET", "./AJAX简介.txt", true);
+     /*
+     send()	向服务器发送请求（用于 GET）
+     send(string)	向服务器发送请求（用于 POST）
+     string填的就是键值对的形式
+    */
+    xhttp.send();
+    }
+
+
+
+     </script>
+
+</body>
+</html>
