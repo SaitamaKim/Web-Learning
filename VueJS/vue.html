@@ -1,44 +1,17 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="utf-8">
-<title>Vue 测试实例 - 菜鸟教程(runoob.com)</title>
-<script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
-</head>
-<body>
-<div id="app">
-  <input type="text" v-model="message">
-  <p>原始字符串: {{ message }}</p>
-  <p>计算后反转字符串: {{ reversedMessage }}</p>
-  <p>使用方法后反转字符串: {{ reversedMessage2() }}</p>
-  <h1 id = "computed"></h1>
-  <h1 id = "methods"></h1>
-</div>
+<template>
+    <div id='id'>
+        
+    </div>
+</template>
 
 <script>
-var vm = new Vue({
-  el: '#app',
-  data: {
-    message: 'Runoob!',
-    count : 0,
-  },
-  computed: {
-    // 计算属性的 getter
-    reversedMessage: function () {
-      // `this` 指向 vm 实例
-      this.count++;
-      document.getElementById("computed").innerHTML = "computed" + this.count;
-      return this.message.split('').reverse().join('')
-    }
-  },
-  methods: {
-    reversedMessage2: function () {
-        this.count++;
-        document.getElementById("methods").innerHTML = "methods" + this.count;
-      return this.message.split('').reverse().join('')
-    }
-  }
-})
+export default {
+    name: 'name'
+
+}
+
 </script>
-</body>
-</html>
+
+<style scoped>
+
+</style>
