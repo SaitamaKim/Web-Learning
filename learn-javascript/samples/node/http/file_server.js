@@ -17,7 +17,7 @@ var
 // node file_server.js E://Game//
 //argv[2]对应第三个词E://Game//
 //resolve方法生成的绝对路径会把最后的斜杠去掉
-var root = path.resolve(process.argv[2]);
+var root = path.resolve(process.argv[2] || '.');
 //当前目录
 //var root = path.resolve();
 
@@ -38,7 +38,14 @@ var server = http.createServer(function (request, response) {
             //没有必要手动读取文件内容。由于response对象本身是一个Writable Stream，
             //直接用pipe()方法就实现了自动读取文件内容并输出到HTTP响应。
             fs.createReadStream(filepath).pipe(response);
-        } else {
+        } else if(!err && stats.isDirectory()) {
+            console.log("u are requesting for directory\n we will search for replacable htmls");
+            response.writeHead(200);
+            var filepath = path.join(root, 'static/index.html');
+            response.writeHead(200,{'Content-Type': 'text/html'});
+            fs.createReadStream(filepath).pipe(response);
+
+        }else{
             console.log('404 ' + request.url);
             console.error(err);
             response.writeHead(404);
