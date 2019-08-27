@@ -4,7 +4,9 @@
 // 导入http模块:
 var http = require('http');
 
-// 创建http server，并传入回调函数:
+// 创建http server，并传入回调函数
+//server中如何监听用户的操作？？？
+//使用回调函数 处理request和response
 var server = http.createServer(function (request, response) {
     // 回调函数接收request和response对象,
     // 获得HTTP请求的method和url:
